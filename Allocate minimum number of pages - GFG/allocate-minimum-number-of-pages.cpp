@@ -39,7 +39,7 @@ class Solution
             if(isfea(A,mid)) sum=mid;
             else i=mid+1;
         }
-        return i;
+        return sum;
     }
 };
 
