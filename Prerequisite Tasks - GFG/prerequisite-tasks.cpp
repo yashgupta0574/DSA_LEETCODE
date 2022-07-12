@@ -10,7 +10,6 @@ vector<bool>vis;
 vector<bool>stack;
     bool cycle(int i)
     {
-       if(vis[i]) return false;
        stack[i]=true;
        int sz=adj[i].size();
        vis[i]=true;
