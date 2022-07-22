@@ -13,30 +13,30 @@ class Solution
     public:
         ListNode* partition(ListNode *head, int x)
         {
-            queue<int> mn;
-            queue<int> mx;
-            ListNode *temp = head;
-            while (temp != NULL)
+            ListNode *small = new ListNode(-1);
+            ListNode *large = new ListNode(-1);
+            ListNode *small_head = small;
+            ListNode *large_head = large;
+
+            while (head)
             {
-                if (temp->val < x) mn.push(temp->val);
-                else mx.push(temp->val);
-                temp = temp->next;
-            }
-            temp = head;
-            while (temp != NULL)
-            {
-                if (!mn.empty())
+                if (head->val < x)
                 {
-                    temp->val = mn.front();
-                    mn.pop();
+                    small->next = head;
+                    small = small->next;
+                    head = head->next;
+                    small->next = NULL;
                 }
                 else
                 {
-                    temp->val = mx.front();
-                    mx.pop();
+                    large->next = head;
+                    large = large->next;
+                    head = head->next;
+                    large->next = NULL;
                 }
-                temp = temp->next;
             }
-            return head;
+            small->next = large_head->next;
+
+            return small_head->next;
         }
 };
