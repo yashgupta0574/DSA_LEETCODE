@@ -2,7 +2,6 @@ class Solution
 {
     public:
         vector<vector < int>> ans;
-    map<vector < int>, int> mp;
     int target, n;
 
     void dosum(vector<int> &candidates, vector<int> member, int idx, int currsum)
@@ -10,11 +9,6 @@ class Solution
         if (currsum > target || idx == n) return;
         if (currsum == target)
         {
-            // if (mp.find(member) == mp.end())
-            // {
-            //     ans.push_back(member);
-            //     mp[member]++;
-            // }
             ans.push_back(member);
             return;
         }
