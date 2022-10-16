@@ -4,7 +4,7 @@ class Solution
         vector<string> ans;
     int n;
 
-    void convert(string s, int idx)
+    void convert(string &s, int idx)
     {
         if (idx == n)
         {
