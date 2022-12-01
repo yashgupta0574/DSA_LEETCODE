@@ -3,7 +3,7 @@ class Solution
     public:
         int countDistinct(vector<int> &nums, int k, int p)
         {
-            set<pair<string,int>> st;
+            set<string> st;
             int n = nums.size();
             for (int i = 0; i < n; i++)
             {
@@ -15,7 +15,7 @@ class Solution
                     if (cnt > k) break;
                     s += to_string(nums[j]);
                     s+='a';
-                    st.insert({s,j-i+1});
+                    st.insert(s);
                 }
             }
             return st.size();
